@@ -8,7 +8,7 @@
 #+include: "./level1/sr_latch_behav.v" src verilog
 
 ** JK latch
-#+include: "./level2/jk_latch.v" src verilog
+#+include: "./level1/jk_latch.v" src verilog
 
 * Level 2
 ** SR flip flop
