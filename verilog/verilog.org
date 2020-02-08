@@ -1,0 +1,28 @@
+#+LATEX_HEADER: \usepackage[margin=0.75in]{geometry}
+#+OPTIONS: toc:1
+#+AUTHOR: Timothy Jones
+#+DATE: [2020-02-07 Fri]
+* Level 1
+** SR latch
+#+include: "./level1/sr_latch_struct.v" src verilog
+#+include: "./level1/sr_latch_behav.v" src verilog
+
+** JK latch
+#+include: "./level2/jk_latch.v" src verilog
+
+* Level 2
+** SR flip flop
+#+include: "./level2/sr_ff.v" src verilog
+
+** D flip flop
+#+include: "./level2/d_ff.v" src verilog
+
+** JK flip flop
+#+include: "./level2/jk_ff.v" src verilog
+
+** Earle flip flop
+#+include: "./level2/earle_ff.v" src verilog
+
+* Level 3
+** 3-bit linear feedback shift register
+#+include: "./level3/lfsr_3.v" src verilog
