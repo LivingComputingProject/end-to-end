@@ -23,6 +23,9 @@
 ** Earle flip flop
 #+include: "./level2/earle_ff.v" src verilog
 
+** SR flip flop master slave
+#+include: "./level2/sr_ff_ms.v" src verilog
+
 * Level 3
 ** 3-bit linear feedback shift register
 #+include: "./level3/lfsr_3.v" src verilog
