@@ -11,14 +11,14 @@ module sr_ff(q, p, e, s, r);
    
 endmodule
 
-module sr_ff_ms(s, r, e, q, p);
+module sr_ff_ms(q, p, e, s, r);
 
    input  s, r, e;
    output q, p;
    wire   si, ri, f;
 
-   not(f,e);
-   sr_ff sr1(s, r, e, si, ri);
-   sr_ff sr2(si, ri, f, q, p);
+   not(f, e);
+   sr_ff sr1(ri, si, e, s, r);
+   sr_ff sr2(q, p, f, si, ri);
    
 endmodule
