@@ -1,10 +1,10 @@
-- [Level 1](#orgd1345a3)
-- [Level 2](#org1a7fc2d)
-- [Level 3](#org98eee1b)
+- [Level 1](#orgb631d24)
+- [Level 2](#org80d144a)
+- [Level 3](#orgef39f34)
 
 
 
-<a id="orgd1345a3"></a>
+<a id="orgb631d24"></a>
 
 # Level 1
 
@@ -57,7 +57,7 @@ endmodule
 ```
 
 
-<a id="org1a7fc2d"></a>
+<a id="org80d144a"></a>
 
 # Level 2
 
@@ -74,7 +74,7 @@ module sr_ff(q, p, e, s, r);
    and(si, s, e);
    and(ri, r, e);
    nor(q, ri, p);
-   nor(q, si, q);
+   nor(p, si, q);
 
 endmodule
 ```
@@ -136,7 +136,121 @@ endmodule
 ```
 
 
-<a id="org98eee1b"></a>
+## SR flip flop master slave
+
+```verilog
+module sr_ff(q, p, e, s, r);
+
+   input  s, r, e;
+   output q, p;
+   wire   si, ri;
+
+   and(si, s, e);
+   and(ri, r, e);
+   nor(q, ri, p);
+   nor(p, si, q);
+
+endmodule
+
+module sr_ff_ms(q, p, e, s, r);
+
+   input  s, r, e;
+   output q, p;
+   wire   si, ri, f;
+
+   not(f, e);
+   sr_ff sr1(ri, si, e, s, r);
+   sr_ff sr2(q, p, f, si, ri);
+
+endmodule
+```
+
+
+## Andrews state machine 1
+
+```verilog
+module sr_latch(q, s, r);
+
+   input  s, r;
+   output q;
+   wire   p;
+
+   nor(q, r, p);
+   nor(p, q, s);
+
+endmodule
+
+module andrews1(y, a, b, c);
+
+   output y;
+   input  a, b, c;
+   wire   q1, q2;
+
+   sr_latch sr1(q1, b, a);
+   sr_latch sr2(q2, c, a);
+   or(y, q1, q2);
+
+endmodule
+```
+
+
+## Andrews state machine 2
+
+```verilog
+module sr_latch(q, s, r);
+
+   input  s, r;
+   output q;
+   wire   p;
+
+   nor(q, r, p);
+   nor(p, q, s);
+
+endmodule
+
+module andrews2(y, a, b, c);
+
+   output y;
+   input  a, b, c;
+   wire   q1, q2;
+
+   sr_latch sr1(q1, b, a);
+   sr_latch sr2(q2, c, a);
+   nor(y, q1, q2);
+
+endmodule
+```
+
+
+## Andrews state machine 3
+
+```verilog
+module sr_latch(q, s, r);
+
+   input  s, r;
+   output q;
+   wire   p;
+
+   nor(q, r, p);
+   nor(p, q, s);
+
+endmodule
+
+module andrews3(y, a, b, c, d);
+
+   output y;
+   input  a, b, c, d;
+   wire   q1, q2;
+
+   sr_latch sr1(q1, b, a);
+   sr_latch sr2(q2, c, a);
+   nor(y, q1, q2, d);
+
+endmodule
+```
+
+
+<a id="orgef39f34"></a>
 
 # Level 3
 
