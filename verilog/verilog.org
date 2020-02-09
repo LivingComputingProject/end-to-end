@@ -26,6 +26,15 @@
 ** SR flip flop master slave
 #+include: "./level2/sr_ff_ms.v" src verilog
 
+** Andrews state machine 1
+#+include: "./level2/andrews1.v" src verilog
+
+** Andrews state machine 2
+#+include: "./level2/andrews2.v" src verilog
+
+** Andrews state machine 3
+#+include: "./level2/andrews3.v" src verilog
+
 * Level 3
 ** 3-bit linear feedback shift register
 #+include: "./level3/lfsr_3.v" src verilog
